@@ -1,0 +1,9 @@
+<?php
+
+return [
+    'elastic' => [
+        'base_url' => 'http://127.0.0.1:9200',
+        'index' => 'product-1545317386',
+    ],
+    'queries' => ['Пила', 'Ножовка', 'Перфоратор', 'Makita', 'Bosch', 'Hammer'],
+];
