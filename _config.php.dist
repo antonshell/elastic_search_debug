@@ -3,7 +3,16 @@
 return [
     'elastic' => [
         'base_url' => 'http://127.0.0.1:9200',
-        'index' => 'product-1545317386',
+        'index' => 'product',
     ],
-    'queries' => ['Пила', 'Ножовка', 'Перфоратор', 'Makita', 'Bosch', 'Hammer'],
+    'queries' => [
+        'Honda',
+        'Ford',
+        'Chrysler',
+        'BMW',
+        'Nissan',
+        'Volvo',
+        'XC90',
+        'RAV4'
+    ],
 ];

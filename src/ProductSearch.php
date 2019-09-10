@@ -22,10 +22,6 @@ class ProductSearch
             'boost' => 9,
             'fuzziness'=> 'AUTO',
         ],
-        'search_characteristics' => [
-            'boost' => 4,
-            'fuzziness'=> '0',
-        ],
     ];
 
     /**
@@ -41,7 +37,6 @@ class ProductSearch
 
         $matches = $this->buildMatches($query);
         $body = [
-            //'_source' => ['id', 'sku', 'name', 'search_characteristics', 'price' ],
             'query' => [
                 'bool' => [
                     'should' => $matches,
@@ -85,7 +80,7 @@ class ProductSearch
         $url = $baseUrl . '/' . $index . '/type/_search';
 
         $client = new Curl();
-        $results = $client->sendPostRequest($url, $body);
+        $results = $client->sendRequest($url, 'POST', $body, ['Content-Type: application/json']);
 
         if(!is_array($results)){
             throw new \Exception('Error. Cant get data from elastic');
@@ -113,7 +108,6 @@ class ProductSearch
             $data[] = [
                 'sku' => $source['sku'],
                 'name' => $source['name'],
-                'category' => $source['categories'][0],
             ];
         }
 

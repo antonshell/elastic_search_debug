@@ -1,0 +1,8 @@
+version : '2'
+services:
+    elasticsearch6:
+        build: ./docker/elasticsearch6
+        container_name: elasticsearch6
+        ports:
+          - 9200:9200
+          - 9300:9300

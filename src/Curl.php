@@ -10,17 +10,18 @@ class Curl
 {
     /**
      * @param $url
-     * @param $data
-     * @param $headers
+     * @param string $method
+     * @param string $data
+     * @param array $headers
      * @return mixed
      */
-    public function sendPostRequest($url, $data = '', array $headers = []){
+    public function sendRequest($url, $method = 'GET', $data = '', array $headers = []){
         if(is_array($data)){
             $data = json_encode($data);
         }
 
         $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 

@@ -18,7 +18,7 @@ foreach ($queries as $query){
         echo "Query: $query\n";
 
         foreach ($results as $row){
-            $message = $row['name'] . ' - ' . $row['sku'] . ' - ' . $row['category'];
+            $message = $row['name'];
             echo "\t$message\n";
         }
     } catch (Exception $e) {
